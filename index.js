@@ -1,6 +1,9 @@
-let firstName = "Jason";
-let lastName = "Martin";
+let name = "Linda"
+let greeting = "Hi there"
 
-let fullName = firstName + " " + lastName;
+// Create a function that logs out "Hi there, Linda!" when called
 
-console.log(fullName);
+function greet() {
+    console.log(greeting + " " + name);
+}
+greet()
