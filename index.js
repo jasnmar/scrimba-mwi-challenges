@@ -1,43 +1,88 @@
-let num1 = 8
-let num2 = 2
-document.getElementById("num1-el").textContent = num1
-document.getElementById("num2-el").textContent = num2
+let homeScore = 0;
+let guestScore = 0;
 
-const addBtn = document.getElementById("add")
-const subBtn = document.getElementById("subtract")
-const divBtn = document.getElementById("divide")
-const mulBtn = document.getElementById("multiply")
-
-addBtn.addEventListener("click", add)
-subBtn.addEventListener("click", subtract)
-divBtn.addEventListener("click", divide)
-mulBtn.addEventListener("click", multiply)
-
-const firstNumStr = document.getElementById("num1-el").textContent;
-const secondNumStr = document.getElementById("num2-el").textContent;
-
-const firstNum = parseInt(firstNumStr);
-const secondNum = parseInt(secondNumStr);
-
-const result = document.getElementById("sum-el")
-
-// Create four functions: add(), subtract(), divide(), multiply()
-function add() {
-    const newNumb = firstNum + secondNum;
-    result.textContent = "Sum: " + newNumb;
+function setupBtns() {
+    const home1 = document.getElementById('h1');
+    const home2 = document.getElementById('h2');
+    const home3 = document.getElementById('h3');
+    const guest1 = document.getElementById('g1');
+    const guest2 = document.getElementById('g2');
+    const guest3 = document.getElementById('g3');
+    const ngBtn = document.getElementById('newGame');
+    home1.addEventListener("click", addh1);
+    home2.addEventListener("click", addh2);
+    home3.addEventListener("click", addh3);
+    guest1.addEventListener("click", addg1);
+    guest2.addEventListener("click", addg2);
+    guest3.addEventListener("click", addg3);
+    ngBtn.addEventListener("click", newGame);
 }
-function subtract() {
-    const newNumb = firstNum - secondNum;
-    result.textContent = "Result: " + newNumb;
-    
+setupBtns();
+
+function addh1(event) {
+    event.preventDefault();
+    homeScore += 1;
+    updateHome();
 }
-function divide() {
-    const newNumb = firstNum / secondNum;
-    result.textContent = "Result: " + newNumb;
-    
+function addh2(event) {
+    event.preventDefault();
+    homeScore += 2;
+    updateHome();
 }
-function multiply() {
-    const newNumb = firstNum * secondNum;
-    result.textContent = "Result: " + newNumb;
-    
+function addh3(event) {
+    event.preventDefault();
+    homeScore += 3;
+    updateHome();
+}
+function updateHome() {
+    const hScoreEl = document.getElementById('hScore');
+    hScoreEl.textContent = homeScore;
+    highlightLeader();
+}
+
+function addg1(event) {
+    event.preventDefault();
+    guestScore += 1;
+    updateGuest();
+}
+function addg2(event) {
+    event.preventDefault();
+    guestScore += 2;
+    updateGuest();
+}
+function addg3(event) {
+    event.preventDefault();
+    guestScore += 3;
+    updateGuest();
+}
+function updateGuest() {
+    const gScoreEl = document.getElementById('gScore');
+    gScoreEl.textContent = guestScore;
+    highlightLeader();
+}
+
+function highlightLeader() {
+    const hScoreLblEl = document.getElementById('hScoreLabel');
+    const gScoreLblEl = document.getElementById('gScoreLabel');
+    if(homeScore==guestScore) {
+        hScoreLblEl.classList.remove('leader');
+        gScoreLblEl.classList.remove('leader');
+        return;
+    }
+    if(homeScore>guestScore) {
+        hScoreLblEl.classList.add('leader');
+        gScoreLblEl.classList.remove('leader');
+    } else {
+        gScoreLblEl.classList.add('leader');
+        hScoreLblEl.classList.remove('leader');
+
+    }
+};
+
+function newGame(event) {
+    event.preventDefault();
+    homeScore = 0;
+    guestScore = 0;
+    updateHome();
+    updateGuest();
 }

@@ -2,10 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="scoreGroup">
+            <h3 id="hScoreLabel">HOME</h3>
+            <div class="score" id="hScore">0</div>
+            <div class="btnGroup">
+                <button class="addScoreButton" id="h1">+1</button>
+                <button class="addScoreButton" id="h2">+2</button>
+                <button class="addScoreButton" id="h3">+3</button>
+            </div>
+        </div>
+        <div class="scoreGroup">
+            <h3 id="gScoreLabel">GUEST</h3>
+            <div class="score" id="gScore">0</div>
+            <div class="btnGroup">
+                <button class="addScoreButton" id="g1">+1</button>
+                <button class="addScoreButton" id="g2">+2</button>
+                <button class="addScoreButton" id="g3">+3</button>
+            </div>
+        </div>
+
+    </div>
+    <div>
+        <button id="newGame">New Game</button>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
