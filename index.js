@@ -1,7 +1,7 @@
-// Try to predict what each of the lines will log out
-console.log("2" + 2) // 22
-console.log(11 + 7) // 18
-console.log(6 + "5") // 65
-console.log("My points: " + 5 + 9) // My points59
-console.log(2 + 2) //  4
-console.log("11" + "14") // 1114 
+const purchaseBtn = document.getElementById("purchase");
+purchaseBtn.addEventListener("click", showError);
+
+function showError(event) {
+    const errText = document.getElementById("error")
+    errText.textContent = "Something went wrong, please try again"
+}
